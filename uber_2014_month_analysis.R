@@ -1,0 +1,235 @@
+library(readr) # CSV file I/O, e.g. the read_csv function
+library(ggplot2)
+library(ggmap)
+library(dplyr)
+library(lubridate)
+library(scales)
+library(tidyr)
+library(DT)
+library(ggthemes)
+
+#uber_april
+uber.april <- read.csv("D:/proj/Analytics/Uber/nyc/uber-raw-data-apr14.csv")
+str(uber.april)
+
+# converting date to proper format
+
+uber.april$Date.Time <- strptime(uber.april$Date.Time, format = "%m/%d/%Y %H:%M:%S")
+uber.april$day <- as.integer(format(uber.april$Date.Time, "%d"))
+uber.april$weekday <- as.integer(format(uber.april$Date.Time, "%w"))
+uber.april$hour <- as.integer(format(uber.april$Date.Time, "%H"))
+
+# histograms
+
+ggplot(data = uber.april, aes(x = uber.april$day)) + geom_histogram(
+  binwidth = 1, fill = "navy", color = "red") + scale_x_continuous(
+    breaks = seq(0,30,1)) + scale_y_continuous(
+      breaks = seq(0,40000,5000)) + labs(
+        x = "Day of the month", y = "Uber bookings")
+
+
+ggplot(data = uber.april, aes(x = uber.april$weekday)) + geom_histogram(
+  binwidth = 1, fill = "green", color = "red") + scale_x_continuous(
+    breaks = seq(0,30,1)) + scale_y_continuous(
+      breaks = seq(0,120000,10000)) + labs( title = "uber_april",
+        x = "Day of the week(0-Sunday,6-Saturday)", y = "Uber bookings")
+
+
+ggplot(data = uber.april, aes(x = uber.april$hour)) + geom_histogram(
+  binwidth = 1, fill = "green", color = "red") + scale_x_continuous(
+    breaks = seq(0,30,1)) + scale_y_continuous(
+      breaks = seq(0,50000,5000)) + labs( title = "uber_april",
+        x = "Time of the day(00-23 hrs)", y = "Uber bookings")
+
+#########################################################################
+
+#uber_may
+uber.may <- read.csv("D:/proj/Analytics/Uber/nyc/uber-raw-data-may14.csv")
+str(uber.may)
+
+# converting date to proper format
+
+uber.may$Date.Time <- strptime(uber.may$Date.Time, format = "%m/%d/%Y %H:%M:%S")
+uber.may$day <- as.integer(format(uber.may$Date.Time, "%d"))
+uber.may$weekday <- as.integer(format(uber.may$Date.Time, "%w"))
+uber.may$hour <- as.integer(format(uber.may$Date.Time, "%H"))
+
+# histograms
+
+ggplot(data = uber.may, aes(x = uber.may$day)) + geom_histogram(
+  binwidth = 1, fill = "navy", color = "red") + scale_x_continuous(
+    breaks = seq(0,30,1)) + scale_y_continuous(
+      breaks = seq(0,40000,5000)) + labs(
+        x = "Day of the month", y = "Uber bookings")
+
+
+ggplot(data = uber.may, aes(x = uber.may$weekday)) + geom_histogram(
+  binwidth = 1, fill = "green", color = "red") + scale_x_continuous(
+    breaks = seq(0,30,1)) + scale_y_continuous(
+      breaks = seq(0,120000,10000)) + labs( title = "uber_may",
+                                            x = "Day of the week(0-Sunday,6-Saturday)", y = "Uber bookings")
+
+
+ggplot(data = uber.may, aes(x = uber.may$hour)) + geom_histogram(
+  binwidth = 1, fill = "green", color = "red") + scale_x_continuous(
+    breaks = seq(0,30,1)) + scale_y_continuous(
+      breaks = seq(0,50000,5000)) + labs( title = "uber_may",
+                                          x = "Time of the day(00-23 hrs)", y = "Uber bookings")
+
+####################################################################
+#uber_june
+uber.june <- read.csv("D:/proj/Analytics/Uber/nyc/uber-raw-data-jun14.csv")
+str(uber.june)
+
+# converting date to proper format
+
+uber.june$Date.Time <- strptime(uber.june$Date.Time, format = "%m/%d/%Y %H:%M:%S")
+uber.june$day <- as.integer(format(uber.june$Date.Time, "%d"))
+uber.june$weekday <- as.integer(format(uber.june$Date.Time, "%w"))
+uber.june$hour <- as.integer(format(uber.june$Date.Time, "%H"))
+
+# histograms
+
+ggplot(data = uber.june, aes(x = uber.june$day)) + geom_histogram(
+  binwidth = 1, fill = "navy", color = "red") + scale_x_continuous(
+    breaks = seq(0,30,1)) + scale_y_continuous(
+      breaks = seq(0,40000,5000)) + labs(
+        x = "Day of the month", y = "Uber bookings")
+
+
+ggplot(data = uber.june, aes(x = uber.june$weekday)) + geom_histogram(
+  binwidth = 1, fill = "green", color = "red") + scale_x_continuous(
+    breaks = seq(0,30,1)) + scale_y_continuous(
+      breaks = seq(0,120000,10000)) + labs( title = "uber_june",
+                                            x = "Day of the week(0-Sunday,6-Saturday)", y = "Uber bookings")
+
+
+ggplot(data = uber.june, aes(x = uber.june$hour)) + geom_histogram(
+  binwidth = 1, fill = "green", color = "red") + scale_x_continuous(
+    breaks = seq(0,30,1)) + scale_y_continuous(
+      breaks = seq(0,50000,5000)) + labs( title = "uber_june",
+                                          x = "Time of the day(00-23 hrs)", y = "Uber bookings")
+##########################################################
+
+#uber_july
+uber.july <- read.csv("D:/proj/Analytics/Uber/nyc/uber-raw-data-jul14.csv")
+str(uber.july)
+
+# converting date to proper format
+
+uber.july$Date.Time <- strptime(uber.july$Date.Time, format = "%m/%d/%Y %H:%M:%S")
+uber.july$day <- as.integer(format(uber.july$Date.Time, "%d"))
+uber.july$weekday <- as.integer(format(uber.july$Date.Time, "%w"))
+uber.july$hour <- as.integer(format(uber.july$Date.Time, "%H"))
+
+# histograms
+
+ggplot(data = uber.july, aes(x = uber.july$day)) + geom_histogram(
+  binwidth = 1, fill = "navy", color = "red") + scale_x_continuous(
+    breaks = seq(0,30,1)) + scale_y_continuous(
+      breaks = seq(0,40000,5000)) + labs( title= "uber_july",
+        x = "Day of the month", y = "Uber bookings")
+
+
+ggplot(data = uber.july, aes(x = uber.july$weekday)) + geom_histogram(
+  binwidth = 1, fill = "green", color = "red") + scale_x_continuous(
+    breaks = seq(0,30,1)) + scale_y_continuous(
+      breaks = seq(0,120000,10000)) + labs( title = "uber_july",
+                                            x = "Day of the week(0-Sunday,6-Saturday)", y = "Uber bookings")
+
+
+ggplot(data = uber.july, aes(x = uber.july$hour)) + geom_histogram(
+  binwidth = 1, fill = "green", color = "red") + scale_x_continuous(
+    breaks = seq(0,30,1)) + scale_y_continuous(
+      breaks = seq(0,50000,5000)) + labs( title = "uber_july",
+                                          x = "Time of the day(00-23 hrs)", y = "Uber bookings")
+
+###############################################################
+#uber_august
+uber.august <- read.csv("D:/proj/Analytics/Uber/nyc/uber-raw-data-aug14.csv")
+str(uber.august)
+
+# converting date to proper format
+
+uber.august$Date.Time <- strptime(uber.august$Date.Time, format = "%m/%d/%Y %H:%M:%S")
+uber.august$day <- as.integer(format(uber.august$Date.Time, "%d"))
+uber.august$weekday <- as.integer(format(uber.august$Date.Time, "%w"))
+uber.august$hour <- as.integer(format(uber.august$Date.Time, "%H"))
+
+# histograms
+
+ggplot(data = uber.august, aes(x = uber.august$day)) + geom_histogram(
+  binwidth = 1, fill = "navy", color = "red") + scale_x_continuous(
+    breaks = seq(0,30,1)) + scale_y_continuous(
+      breaks = seq(0,40000,5000)) + labs(
+        x = "Day of the month", y = "Uber bookings")
+
+
+ggplot(data = uber.august, aes(x = uber.august$weekday)) + geom_histogram(
+  binwidth = 1, fill = "green", color = "red") + scale_x_continuous(
+    breaks = seq(0,30,1)) + scale_y_continuous(
+      breaks = seq(0,120000,10000)) + labs( title = "uber_august",
+                                            x = "Day of the week(0-Sunday,6-Saturday)", y = "Uber bookings")
+
+
+ggplot(data = uber.august, aes(x = uber.august$hour)) + geom_histogram(
+  binwidth = 1, fill = "green", color = "red") + scale_x_continuous(
+    breaks = seq(0,30,1)) + scale_y_continuous(
+      breaks = seq(0,50000,5000)) + labs( title = "uber_august" ,
+                                          x = "Time of the day(00-23 hrs)", y = "Uber bookings")
+####################################################
+#uber_september
+uber.sept <- read.csv("D:/proj/Analytics/Uber/nyc/uber-raw-data-sep14.csv")
+str(uber.sept)
+
+# converting date to proper format
+
+uber.sept$Date.Time <- strptime(uber.sept$Date.Time, format = "%m/%d/%Y %H:%M:%S")
+uber.sept$day <- as.integer(format(uber.sept$Date.Time, "%d"))
+uber.sept$weekday <- as.integer(format(uber.sept$Date.Time, "%w"))
+uber.sept$hour <- as.integer(format(uber.sept$Date.Time, "%H"))
+
+# histograms
+
+ggplot(data = uber.sept, aes(x = uber.sept$day)) + geom_histogram(
+  binwidth = 1, fill = "navy", color = "red") + scale_x_continuous(
+    breaks = seq(0,30,1)) + scale_y_continuous(
+      breaks = seq(0,40000,5000)) + labs( 
+        x = "Day of the month", y = "Uber bookings")
+
+
+ggplot(data = uber.sept, aes(x = uber.sept$weekday)) + geom_histogram(
+  binwidth = 1, fill = "green", color = "red") + scale_x_continuous(
+    breaks = seq(0,30,1)) + scale_y_continuous(
+      breaks = seq(0,120000,10000)) + labs( title = "uber_september",
+                                            x = "Day of the week(0-Sunday,6-Saturday)", y = "Uber bookings")
+
+
+ggplot(data = uber.sept, aes(x = uber.sept$hour)) + geom_histogram(
+  binwidth = 1, fill = "green", color = "red") + scale_x_continuous(
+    breaks = seq(0,30,1)) + scale_y_continuous(
+      breaks = seq(0,50000,5000)) + labs( title = "uber_september",
+                                          x = "Time of the day(00-23 hrs)", y = "Uber bookings")
+###########################################################
+
+uber_apr14 <- read.csv("D:/proj/Analytics/Uber/nyc/uber-raw-data-apr14.csv")
+uber_may14 <- read.csv("D:/proj/Analytics/Uber/nyc/uber-raw-data-may14.csv")
+uber_jun14 <- read.csv("D:/proj/Analytics/Uber/nyc/uber-raw-data-jun14.csv")
+uber_jul14 <- read.csv("D:/proj/Analytics/Uber/nyc/uber-raw-data-jul14.csv")
+uber_aug14 <- read.csv("D:/proj/Analytics/Uber/nyc/uber-raw-data-aug14.csv")
+uber_sep14 <- read.csv("D:/proj/Analytics/Uber/nyc/uber-raw-data-sep14.csv")
+
+
+uber_2014 <- rbind(uber_apr14,uber_may14, uber_jun14, uber_jul14, uber_aug14, uber_sep14)
+
+#uber_heatmap
+min_lat <- 40.5774
+max_lat <- 40.9176
+min_long <- -74.15
+max_long <- -73.7004
+
+ggplot(uber_2014, aes(x=Lon, y=Lat)) +
+  geom_point(size=1, color = "blue") +
+  scale_x_continuous(limits=c(min_long, max_long)) +
+  scale_y_continuous(limits=c(min_lat, max_lat)) +
+  ggtitle("NYC MAP BASED ON UBER RIDES DURING 2014 (APR-SEP)")
